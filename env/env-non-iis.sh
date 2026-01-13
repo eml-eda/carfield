@@ -13,6 +13,10 @@ if [ -z "${BENDER}" ]; then
     echo "Environment variable 'BENDER' is not set."
 fi
 
+if [ -z "${PULP_RISCV_GCC_TOOLCHAIN}" ]; then
+    echo "Environment variable 'PULP_RISCV_GCC_TOOLCHAIN' is not set."
+fi
+
 if ! which "riscv64-unknown-elf-gcc" >/dev/null 2>&1; then
   echo "RISCV64 toolchain is NOT in the PATH."
 fi
@@ -29,4 +33,5 @@ fi
 #   echo "QuestaSim is NOT in the PATH."
 # fi
 
-export PULP_SDK_HOME=$(realpath ../pulp_sdk)
+# Commented since the SDK is inside pulp_runtime 
+#export PULP_SDK_HOME=$(realpath ../pulp_sdk)
